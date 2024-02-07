@@ -49,7 +49,7 @@ setup() {
     espeak "installing virtual environment"
     # Rebuilding this is pretty cheap, so just do it every time.
     rm -rf $VENV
-    /usr/bin/python3 -m virtualenv --system-site-packages $VENV || exit -1
+    /usr/bin/python3 -m venv --system-site-packages $VENV || exit -1
     PYTHON=$VENV/bin/python3
     espeak "installing virtual environment dependencies"
     $PYTHON -m pip install --ignore-installed psutil flask Flask-WTF pyalsaaudio pydub pyaudio pyyaml dbus-python || exit -1

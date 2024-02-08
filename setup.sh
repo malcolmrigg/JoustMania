@@ -45,6 +45,7 @@ setup() {
     echo "about to install python3-dev and virtualenv"
     sudo apt-get install -y python3-dev || exit -1
     sudo apt-get install -y python3-virtualenv || exit -1
+    sudo apt-get install -y python3-venv || exit -1
     
     espeak "installing virtual environment"
     # Rebuilding this is pretty cheap, so just do it every time.

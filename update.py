@@ -27,7 +27,7 @@ def run_command(command):
 
 def big_update(voice):
     Audio('audio/Menu/vox/' + voice + '/update_started.wav').start_effect_and_wait()
-    homename = run_command("logname").strip()
+    homename = "malcolm"
     current_hash = run_command("sudo runuser -l pi -c 'cd {};git rev-parse HEAD'".format(os.getcwd())).strip()
     run_command("sudo runuser -l {} -c 'cd {};git checkout master'".format(homename,os.getcwd()))
     run_command("sudo runuser -l {} -c 'cd {};git pull'".format(homename,os.getcwd()))
@@ -38,7 +38,7 @@ def big_update(voice):
     Audio('audio/Menu/vox/' + voice + '/joustmania_failed.wav').start_effect_and_wait()
     
 def tester():
-    homename = run_command("logname").strip()
+    homename = "malcolm"
     current_hash = run_command("sudo runuser -l {} -c 'git rev-parse HEAD'".format(homename)).strip()
     print(current_hash)
 
@@ -47,7 +47,7 @@ def check_for_update(voice):
     print(os.getcwd())
     print(os.path.expanduser('~'))
     print(os.environ.get("USERNAME"))
-    homename = run_command("logname").strip()
+    homename = "malcolm"
     #print(os.getlogin())
     process = run_command("sudo runuser -l {} -c 'cd {};pwd'".format(homename,os.getcwd()))
     process = run_command("sudo runuser -l {} -c 'cd {};git fetch'".format(homename,os.getcwd()))
@@ -61,7 +61,7 @@ def check_for_update(voice):
 
     elif (len(diff_files) >= 1):
         print("doing small pull")
-        homename = run_command("logname").strip()
+        homename = "malcolm"
         pull = run_command("sudo runuser -l {} -c 'cd {};git pull'".format(homename,os.getcwd()))
         Audio('audio/Menu/vox/' + voice + '/joustmania_updated.wav').start_effect_and_wait()
         return False
